@@ -1,0 +1,35 @@
+<div class="container text-center">
+  <h1>{{ title }}</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="search-food">
+      <input
+        class="form-control"
+        type="text"
+        name="search"
+        [(ngModel)]="searchText"
+        autocomplete="off"
+        placeholder="&#61442;  Start searching with ingrediants"
+      />
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Food</th>
+          <th>Servings</th>
+          <th>type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let food of foods | filter: searchText">
+          <td>{{ food.id }}</td>
+          <td>{{ food.food }}</td>
+          <td>{{ food.serving }}</td>
+          <td>{{ food.type }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
